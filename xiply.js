@@ -1,6 +1,6 @@
 /**
  * xiply.js - very simple js/html5 audio player
- * (C) 2014 Tobias Bengfort <tobias.bengfort@gmx.net>
+ * (C) 2014 Tobias Bengfort <tobias.bengfort@posteo.de>
  * License: GPL-3+
  *
  * Example usage:
