@@ -1,0 +1,21 @@
+{
+  "name": "xiply",
+  "main": "xiply.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/xi/xiply",
+  "authors": [
+    "Tobias Bengfort <tobias.bengfort@posteo.de>"
+  ],
+  "description": "very simple js/html5 audio player",
+  "keywords": [
+    "audio"
+  ],
+  "license": "GPL-3+",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
