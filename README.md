@@ -7,9 +7,9 @@ Example usage:
 		<p>But this one is even nicer: <a class="track" href="2.mp3">Track 2</a></p>
 	</div>
 
-	<script src="player.js"></script>
+	<script src="xiply.js"></script>
 	<script>
-		init_player(document.getElementById('player'));
+		init_xiply(document.getElementById('player'));
 	</script>
 
 xiply.js will add an audio element to the `player` div.
