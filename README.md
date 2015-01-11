@@ -17,4 +17,8 @@ When you click a `track` it will start playing.
 When it is finished playing it will automatically start the
 next `track` from the same `player` div.
 
+`init_xiply` returns the generated audio element. Two additional event types
+will be triggered on this element: `'selectTrack'` and `'unselectTrack'`. In
+both cases, `event.detail` contains the title.
+
 xiply.js tries to be accessible and degrade gracefully

@@ -12,6 +12,12 @@ function init_xiply(container) {
 	player.setAttribute('controls', true);
 	container.appendChild(player);
 
+	function dispatchEvent(name, trackTitle) {
+		player.dispatchEvent(new CustomEvent(name, {
+			'detail': trackTitle
+		}));
+	}
+
 	function _current() {
 		return container.getElementsByClassName('current')[0];
 	}
@@ -29,12 +35,14 @@ function init_xiply(container) {
 		var current = _current();
 		if (current) {
 			current.classList.remove('current');
+			dispatchEvent('unselectTrack', current.textContent);
 		}
 	}
 
 	function select(element) {
 		if (element) {
 			element.classList.add('current');
+			dispatchEvent('selectTrack', element.textContent);
 		}
 	}
 
@@ -76,4 +84,6 @@ function init_xiply(container) {
 	// player.addEventListener('ended', function(e) {
 	// 	loadNext();
 	// });
+
+	return player;
 }
