@@ -1,7 +1,7 @@
 {
   "name": "xiply",
   "main": "xiply.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/xi/xiply",
   "authors": [
     "Tobias Bengfort <tobias.bengfort@posteo.de>"
