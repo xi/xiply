@@ -7,7 +7,6 @@
 "use strict";
 
 function init_xiply(container) {
-	var tracks = container.getElementsByClassName('track');
 	var player = document.createElement('audio');
 	player.setAttribute('controls', true);
 	container.appendChild(player);
@@ -23,6 +22,7 @@ function init_xiply(container) {
 	}
 
 	function _next() {
+		var tracks = container.getElementsByClassName('track');
 		var current = _current();
 		for (var i=0; i<tracks.length-1; i++) {
 			if (tracks[i] === current) {
@@ -67,12 +67,12 @@ function init_xiply(container) {
 		}
 	}
 
-	for (var i=0; i<tracks.length; i++) {
-		tracks[i].addEventListener('click', function(e) {
+	container.addEventListener('click', function(e) {
+		if (e.target.classList.contains('track')) {
 			e.preventDefault();
-			load(this);
-		});
-	}
+			load(e.target);
+		}
+	});
 
 	// 'ended' event is unreliable, so we use polling instead
 	setInterval(function() {
