@@ -68,7 +68,7 @@ function init_xiply(container) {
 	}
 
 	container.addEventListener('click', function(e) {
-		if (e.target.classList.contains('track')) {
+		if (e.target.classList.contains('track') && e.button === 0) {
 			e.preventDefault();
 			load(e.target);
 		}
