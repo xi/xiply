@@ -4,49 +4,49 @@
  * License: GPL-3+
  */
 
-"use strict";
-
 function init_xiply(container) {
+	"use strict";
+
 	var player = document.createElement('audio');
 	player.setAttribute('controls', true);
 	container.appendChild(player);
 
-	function dispatchEvent(name, trackTitle) {
+	var dispatchEvent = function(name, trackTitle) {
 		player.dispatchEvent(new CustomEvent(name, {
-			'detail': trackTitle
+			'detail': trackTitle,
 		}));
-	}
+	};
 
-	function _current() {
-		return container.getElementsByClassName('current')[0];
-	}
+	var _current = function() {
+		return container.querySelector('.current');
+	};
 
-	function _next() {
-		var tracks = container.getElementsByClassName('track');
+	var _next = function() {
+		var tracks = container.querySelectorAll('.track');
 		var current = _current();
-		for (var i=0; i<tracks.length-1; i++) {
+		for (var i = 0; i < tracks.length - 1; i++) {
 			if (tracks[i] === current) {
-				return tracks[i+1];
+				return tracks[i + 1];
 			}
 		}
-	}
+	};
 
-	function unselect() {
+	var unselect = function() {
 		var current = _current();
 		if (current) {
 			current.classList.remove('current');
 			dispatchEvent('unselectTrack', current.textContent);
 		}
-	}
+	};
 
-	function select(element) {
+	var select = function(element) {
 		if (element) {
 			element.classList.add('current');
 			dispatchEvent('selectTrack', element.textContent);
 		}
-	}
+	};
 
-	function load(track) {
+	var load = function(track) {
 		unselect();
 		if (track) {
 			select(track);
@@ -54,9 +54,9 @@ function init_xiply(container) {
 			player.title = track.textContent;
 			player.play();
 		}
-	}
+	};
 
-	function loadNext() {
+	var loadNext = function() {
 		var next = _next();
 		if (next) {
 			load(next);
@@ -65,7 +65,7 @@ function init_xiply(container) {
 			player.src = null;
 			player.title = null;
 		}
-	}
+	};
 
 	container.addEventListener('click', function(e) {
 		if (e.target.classList.contains('track') && e.button === 0) {
